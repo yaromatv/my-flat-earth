@@ -1,18 +1,15 @@
-// import "dotenv/config";
 import React from "react";
 import { createRoot } from "react-dom/client";
 import { APIProvider } from "@vis.gl/react-google-maps";
 import GoogleMap from "./components/GoogleMap/GoogleMap";
 import Cuboid from "./components/Cuboid/Cuboid";
 
-// const { REACT_APP_GMAPS_API_KEY } = process.env;
-
 const App = () => (
     <APIProvider
-        apiKey={"AIzaSyCh5gSE3Q_ejdcTm9X-pgHPxqN3QzY84kQ"}
+        apiKey={process.env.GOOGLE_MAPS_API_KEY}
         onLoad={() => console.log("Maps API has loaded.")}
     >
-        <GoogleMap apiKey={"AIzaSyCh5gSE3Q_ejdcTm9X-pgHPxqN3QzY84kQ"} />
+        <GoogleMap />
         <Cuboid />
         <button>
             FLAT
