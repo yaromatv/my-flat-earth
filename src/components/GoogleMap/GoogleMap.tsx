@@ -5,14 +5,14 @@ const GoogleMap = ({ onCameraChange }) => {
     const mapRef = useRef(null);
 
     const getMapSnapshot = (lat, lng, zoom) => {
-        const snapshot = `https://maps.googleapis.com/maps/api/staticmap?center=${lat},${lng}&zoom=${zoom}&size=640x640&maptype=satellite&key=AIzaSyB41DRUbKWJHPxaFjMAwdrzWzbVKartNGg`;
+        const snapshot = `https://maps.googleapis.com/maps/api/staticmap?center=${lat},${lng}&zoom=${zoom}&size=640x640&maptype=satellite&key=${process.env.GOOGLE_MAPS_API_KEY}`;
         return snapshot;
     };
 
     return (
         <Map
             ref={mapRef}
-            apiKey={"AIzaSyB41DRUbKWJHPxaFjMAwdrzWzbVKartNGg"}
+            apiKey={process.env.GOOGLE_MAPS_API_KEY}
             defaultZoom={17}
             defaultCenter={{ lat: 12.0068714, lng: 79.8094594 }}
             onCameraChanged={(ev: MapCameraChangedEvent) => {

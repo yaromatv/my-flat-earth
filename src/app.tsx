@@ -13,10 +13,10 @@ const App = () => {
         },
         snapshot: "",
     });
+    const [snapshot, setSnapshot] = useState("");
 
     const handleCameraChange = (data) => {
         setCameraData(data);
-        console.log("cameraData: ", cameraData);
     };
 
     const sendDataToAPI = () => {
@@ -39,14 +39,19 @@ const App = () => {
             });
     };
 
+    const handleButtonClick = () => {
+        sendDataToAPI();
+        setSnapshot(cameraData.snapshot);
+    };
+
     return (
         <APIProvider
-            apiKey={"AIzaSyB41DRUbKWJHPxaFjMAwdrzWzbVKartNGg"}
+            apiKey={process.env.GOOGLE_MAPS_API_KEY}
             onLoad={() => console.log("Maps API has loaded.")}
         >
             <GoogleMap onCameraChange={handleCameraChange} />
-            <Cuboid />
-            <button onClick={sendDataToAPI}>
+            <Cuboid snapshot={snapshot} />
+            <button onClick={handleButtonClick}>
                 FLAT
                 <br />
                 MY

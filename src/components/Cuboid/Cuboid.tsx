@@ -7,9 +7,11 @@ import {
     MeshBuilder,
     Vector3,
     Color4,
+    StandardMaterial,
+    Texture,
 } from "@babylonjs/core";
 
-const Cuboid = () => {
+const Cuboid = ({ snapshot }) => {
     const canvasRef = useRef(null);
 
     useEffect(() => {
@@ -40,6 +42,9 @@ const Cuboid = () => {
                 scene
             );
 
+            const material = new StandardMaterial("boxMaterial", scene);
+            box.material = material;
+
             engine.runRenderLoop(() => {
                 scene.render();
                 box.rotation.y += 0.001;
@@ -51,6 +56,20 @@ const Cuboid = () => {
             };
         }
     }, []);
+
+    useEffect(() => {
+        if (canvasRef.current && snapshot) {
+            const engine = Engine.LastCreatedEngine;
+            const scene = engine?.scenes[0];
+            const box = scene?.getMeshByName("box");
+
+            if (box) {
+                const material = new StandardMaterial("boxMaterial", scene);
+                material.diffuseTexture = new Texture(snapshot, scene);
+                box.material = material;
+            }
+        }
+    }, [snapshot]);
 
     return (
         <canvas
