@@ -6,7 +6,7 @@ import Cuboid from "./components/Cuboid/Cuboid";
 
 const App = () => (
     <APIProvider
-        apiKey={process.env.GOOGLE_MAPS_API_KEY}
+        apiKey={"AIzaSyB41DRUbKWJHPxaFjMAwdrzWzbVKartNGg"}
         onLoad={() => console.log("Maps API has loaded.")}
     >
         <GoogleMap />
