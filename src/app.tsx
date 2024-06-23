@@ -20,7 +20,7 @@ const App = () => {
     };
 
     const sendDataToAPI = () => {
-        fetch("http://localhost:3000/api/maps", {
+        fetch(`${process.env.BASE_URL}/api/maps`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
