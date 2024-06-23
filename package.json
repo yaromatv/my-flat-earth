@@ -1,0 +1,23 @@
+{
+    "type": "module",
+    "dependencies": {
+        "@babylonjs/core": "^7.12.0",
+        "@googlemaps/markerclusterer": "^2.5.1",
+        "@vis.gl/react-google-maps": "latest",
+        "babylonjs": "^7.12.0",
+        "dotenv": "^16.4.5",
+        "react": "^18.2.0",
+        "react-dom": "^18.2.0",
+        "vite": "^5.0.4"
+    },
+    "scripts": {
+        "start": "vite",
+        "start-local": "vite --config ./vite.config.js",
+        "build": "vite build",
+        "deploy": "vite build && gh-pages -d dist"
+    },
+    "devDependencies": {
+        "@types/node": "^20.14.8",
+        "gh-pages": "^6.1.1"
+    }
+}
