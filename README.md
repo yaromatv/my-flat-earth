@@ -2,13 +2,14 @@
 
 ## Description
 
-Are you sure our planet is a sphere? Now you can choose what you like!
+Are you questioning the shape of our planet? This project allows you to explore different perspectives on Earth's shape.
 
 ## Getting Started
 
 To get started download or fork this repo. To run the app, run the following:
 
 1. `npm i`
-2. `npm start`
+2. Provide environment variables in .env file.
+3. `npm start`
 
 This will install the needed dependencies and run the app locally in your browser.
